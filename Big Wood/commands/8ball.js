@@ -16,8 +16,11 @@ module.exports = {
             return
         }
         const answer = await fetch('https://eightballapi.com/api/', {method: 'GET'}).then(response => response.json())
-        
-        message.reply(answer["reading"])
+        const embed = new MessageEmbed()
+        .setColor('#6bb9f0')
+        .setDescription(`${answer["reading"]}`)
+
+        message.reply({embeds: [embed]})
         return
     }
 }
