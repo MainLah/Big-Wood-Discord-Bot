@@ -10,21 +10,4 @@ client.on('ready', () => {
   })
 })
 
-client.on("message", msg => {
-    if (msg.author.bot) return
-
-    if (msg.content === "your mom" 
-    || msg.content === "Your mom" 
-    || msg.content === "YOUR MOM") 
-    {
-      msg.reply("She's a very nice woman, and so is yours.")
-    } else if (msg.content === "your mother" 
-    || msg.content === "Your mother" 
-    || msg.content === "YOUR MOTHER") 
-    {
-      msg.reply("She's a very nice woman, and so is yours.")
-    }
-});
-
-
 client.login('TOKEN');
