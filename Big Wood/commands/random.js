@@ -11,14 +11,14 @@ module.exports = {
     maxArgs: 1,
     
     callback: async (message, args) => {
-        const answer = await fetch(`https://random-word-api.herokuapp.com/word?number=${message.args.join('')}`, {method: 'GET'})
-        .then(response => response.json())
-        .catch(error => console.log(error))
-
-        if (answer.length > 10) {
+        if (Number(message.args.join('')) > 10) {
             message.channel.send(`I ain't sending you that many`)
             return
         }
+        
+        const answer = await fetch(`https://random-word-api.herokuapp.com/word?number=${message.args.join('')}`, {method: 'GET'})
+        .then(response => response.json())
+        .catch(error => console.log(error))
 
         let embed = new MessageEmbed()
         .setColor('#6bb9f0')
