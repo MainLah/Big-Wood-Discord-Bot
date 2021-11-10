@@ -14,6 +14,11 @@ module.exports = {
         const def = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${message.args.join('')}`, {method: 'GET'})
         .then(response => response.json())
         .catch(error => console.log(error))
+        
+        if(def.hasOwnProperty('resolution')) {
+            message.channel.send('What are you trying to look for? Cause it\'s too retarded to have a meaning')
+            return
+        }
 
         let embed = new MessageEmbed()
         .setColor('#0099ff')
