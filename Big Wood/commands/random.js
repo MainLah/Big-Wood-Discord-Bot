@@ -7,6 +7,7 @@ module.exports = {
     
     // For the correct usage of the command
     expectedArgs: '<number of words>',
+    minArgs: 1,
     maxArgs: 1,
     
     callback: async (message, args) => {
