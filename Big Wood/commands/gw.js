@@ -10,6 +10,7 @@ module.exports = {
     testOnly: false,
     
     callback: async (message) => {
+        //takes a random quote from zenquote api, chooses a random word to be guessed
         const quote = await fetch("https://zenquotes.io/api/random", {method: 'GET'}).then(response => response.json());
         const array = quote[0]["q"].split(' ')
         const randomWord = array[Math.floor(Math.random() * array.length)].replace('.', '')
@@ -27,7 +28,8 @@ module.exports = {
         message.channel.send({embeds: [question]})
 
         console.log(randomWord)
-
+        
+        //checking user's message if correct or wrong
         const filter = (m) => {
             return m.author.id === message.author.id
         }
